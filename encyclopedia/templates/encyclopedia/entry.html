@@ -6,4 +6,10 @@
 
 {% block body %}
     {{ content | safe }}
+
+    <form action="{% url 'update' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="entry-title" value="{{ title }}">
+        <input type="submit" value="Update" class="btn btn-danger">
+    </form>
 {% endblock %}
